@@ -23,6 +23,10 @@ Set the connection string to MSSQL DB server with read, write, create, execute p
 
 ``` "WebApiDB": "Data Source=your SQL server;Encrypt=False;Initial Catalog=WebApi;Persist Security Info=True;Integrated Security=true" ```
 
+For SQL authentication use a connection string with User Id=myUsername; Password=myPassword;
+
+``` "WebApiDB": "Server=your SQL server;Database=WebApi;User Id=myUsername;Password=myPassword;" ```
+
 For unit tests project you can set connection string for SQL, for InMemory data set in appsettings-unittest.json DBType = RAM
 
 MSSQL
