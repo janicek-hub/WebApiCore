@@ -22,3 +22,13 @@ Before starting, it is necessary to change the connection string to the database
 Set the connection string to MSSQL DB server with read and write permissions.
 
 ``` "WebApiDB": "Data Source=your SQL server;Encrypt=False;Initial Catalog=WebApi;Persist Security Info=True;Integrated Security=true" ```
+
+For unit tests project you can set connection string for SQL, for InMemory data set in appsettings-unittest.json DBtype = RAM
+
+MSSQL
+
+``` "WebApiDB": "Data Source=your SQL server;Encrypt=False;Initial Catalog=WebApi;Persist Security Info=True;Integrated Security=true" ```
+
+InMemory
+
+``` "DBType": "RAM" ```
