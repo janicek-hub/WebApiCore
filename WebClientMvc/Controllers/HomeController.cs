@@ -18,7 +18,7 @@ namespace WebClientMvc.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Title"] = "Alza";
+            ViewData["Title"] = "WebApp";
             return View();
         }
 

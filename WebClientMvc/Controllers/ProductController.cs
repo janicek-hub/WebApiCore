@@ -64,6 +64,41 @@ namespace WebClientMvc.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImgUri,Price,Description")] Product product)
+        {
+            if (id != product.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    using (var httpClient = new HttpClient())
+                    {
+                        var webApi = new WebApi.WebApi(webApiUrl, httpClient);
+                        var result = await webApi.ProductsPATCHAsync(id, new WebApi.ProductPatchDTO
+                        {
+                            Description = product.Description                            
+                        });
+                        if (result == null)
+                        {
+                            return NotFound();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                     throw;                 
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(product);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {

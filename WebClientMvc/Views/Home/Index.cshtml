@@ -2,7 +2,16 @@
     ViewData["Title"] = "Alza";
 } *@
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-block">
+    <h1 class="display-3">Welcome</h1>
+    <p>
+        This web application consumes data from web API products using a generated OpenAPI client. 
+        WebAPI uses ORM Entity Framework Core 7.0 Code First to work with the data. 
+        The data is imported using migration. Products can be viewed all or one page. 
+        To view the paginated list, go to the link or the link in the menu.
+        <a class="nav-link text-blue" asp-area="" asp-controller="Product" asp-action="Index">Products</a>        
+    </p>
+    <p>
+        The data can be manipulated as specified. So you can only change the product description.
+    </p>
 </div>
