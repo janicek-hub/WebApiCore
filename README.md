@@ -13,3 +13,7 @@ See the examples here:
 Unit tests can be run in Visual Studio
 
 ![ASPNETCOREWebAPI](./unittests.jpg)
+
+--- https://localhost:7234/Product ---
+
+![ASPNETCOREWebAPI](./webapp.jpg)
