@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApi.BusinessControllers.Interfaces.IProductBusinessController">
+            <summary>
+            IProductBusinessController interface
+            </summary>
+        </member>
+        <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.CreateAsync(WebApi.DTO.ProductDTO)">
+            <summary>
+            Create new product
+            </summary>
+            <param name="productDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.PatchProductAsync(System.Int32,WebApi.DTO.ProductPatchDTO)">
+            <summary>
+            Patch product - update Description
+            </summary>
+            <param name="id"></param>
+            <param name="productDTO"></param>
+            <returns></returns>
+            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+        </member>
+        <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.GetProductAsync(System.Int32)">
+            <summary>
+            Get product by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+        </member>
+        <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.GetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get pagination result of products
+            </summary>
+            <param name="from"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.GetAllAsync">
+            <summary>
+            Get all products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.BusinessControllers.ProductBusinessController">
+            <summary>
+            Product business controller
+            </summary>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.#ctor(WebApi.Repository.Interfaces.IProductRepository,Microsoft.Extensions.Logging.ILogger{WebApi.BusinessControllers.ProductBusinessController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="productRepository"></param>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.CreateAsync(WebApi.DTO.ProductDTO)">
+            <summary>
+            Create new product
+            </summary>
+            <param name="productDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.PatchProductAsync(System.Int32,WebApi.DTO.ProductPatchDTO)">
+            <summary>
+            Patch product - update Description
+            </summary>
+            <param name="id"></param>
+            <param name="productDTO"></param>
+            <returns></returns>
+            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.GetProductAsync(System.Int32)">
+            <summary>
+            Get product by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.GetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get pagination result of products
+            </summary>
+            <param name="from"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.BusinessControllers.ProductBusinessController.GetAllAsync">
+            <summary>
+            Get all products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.ProductController">
+            <summary>
+            Product API controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.ProductController.#ctor(WebApi.BusinessControllers.Interfaces.IProductBusinessController)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.ProductController.GetAll">
+            <summary>
+            Return all products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProductController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Return a paginated list of products
+            </summary>
+            <param name="from"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProductController.GetById(System.Int32)">
+            <summary>
+            Get product by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.ProductController.Patch(System.Int32,WebApi.DTO.ProductPatchDTO)">
+            <summary>
+            Updates description of product
+            </summary>
+            <param name="id">Identifier.</param>
+            <param name="product">Data for update.</param>
+            <returns>Updated product</returns>
+            <response code="200">Returns updated product item.</response>
+            <response code="400">Returns ProblemDetail with message.</response>
+            <response code="500">Returns ProblemDetail with exception.</response>
+        </member>
+        <member name="T:WebApi.Controllers.VersionController">
+            <summary>
+            Version controller
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.VersionController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{WebApi.Controllers.VersionController})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="configuration"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:WebApi.Controllers.VersionController.Get">
+            <summary>
+            Returns version of the current api
+            
+            For development purposes it returns version of assembly, for production purposes it returns string build by pipeline which contains project information, pipeline build version, assembly version, and build date
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.DTO.ProductDTO">
+            <summary>
+            ProductDTO
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductDTO.Id">
+            <summary>
+            Product identifier
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductDTO.Name">
+            <summary>
+            Product name
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductDTO.ImgUri">
+            <summary>
+            Product image
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductDTO.Price">
+            <summary>
+            Product price
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductDTO.Description">
+            <summary>
+            Product description
+            </summary>
+        </member>
+        <member name="T:WebApi.DTO.ProductPatchDTO">
+            <summary>
+            ProductPatchDTO
+            </summary>
+        </member>
+        <member name="P:WebApi.DTO.ProductPatchDTO.Description">
+            <summary>
+            Product description
+            </summary>
+        </member>
+        <member name="T:WebApi.Migrations.Schema001">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.Schema001.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.Schema001.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.Schema001.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebApi.Migrations.DataImport">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.DataImport.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.DataImport.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:WebApi.Migrations.DataImport.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebApi.Model.Entities.Product">
+            <summary>
+            Product entity
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Entities.Product.Id">
+            <summary>
+            Product identifier
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Entities.Product.Name">
+            <summary>
+            Product name
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Entities.Product.ImgUri">
+            <summary>
+            Product image
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Entities.Product.Price">
+            <summary>
+            Product price
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Entities.Product.Description">
+            <summary>
+            Product description
+            </summary>
+        </member>
+        <member name="T:WebApi.Model.Version">
+            <summary>
+            API version information
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.InstanceIdentifier">
+            <summary>
+            Instance identifier. Every application runtime has its own guid. If 3 pods are launched in kubernetes, it is possible to identify instance by this identifier
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.InstanceStartedAt">
+            <summary>
+            Last time when instance has been reset
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.ApplicationName">
+            <summary>
+            Application name
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.DockerImage">
+            <summary>
+            Full docker image with name and version
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.DockerImageVersion">
+            <summary>
+            Docker image version
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.BuildNumber">
+            <summary>
+            Build number from devops or github actions
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.DLLVersion">
+            <summary>
+            Application dll version
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.SourceVersion">
+            <summary>
+            Version of commit or changeset
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.BuildTime">
+            <summary>
+            Dll build time
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.Culture">
+            <summary>
+            Culture info
+            </summary>
+        </member>
+        <member name="P:WebApi.Model.Version.Status">
+            <summary>
+            Status to validate functionality
+            </summary>
+        </member>
+        <member name="T:WebApi.Model.WebApiContext">
+            <summary>
+            DB context
+            </summary>
+        </member>
+        <member name="M:WebApi.Model.WebApiContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{WebApi.Model.WebApiContext})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.BeginTransactionAsync">
+            <summary>
+            Begins transaction.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.CommitTransaction">
+            <summary>
+            Commits transaction if exists.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.RollbackTransaction">
+            <summary>
+            Rollbacks transaction if exists.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.AddAsync``1(``0)">
+            <summary>
+            Adds record to DB.
+            </summary>
+            <typeparam name="T">Model from product repository.</typeparam>
+            <param name="entity">Entity, that will be added.</param>
+            <returns>Id of newly created record.</returns>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.UpdateAsync``1(``0)">
+            <summary>
+            Updates record in DB.
+            </summary>
+            <typeparam name="T">Model from product repository.</typeparam>
+            <param name="entity">Entity, that will be updated.</param>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.GetAsync``1(System.Nullable{System.Int32})">
+            <summary>
+            Return product entity by Id
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.GetAsync``1(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Get pagination entities
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="from"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Repository.Interfaces.IProductRepository.GetAllAsync``1">
+            <summary>
+            Get all entities
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.#ctor(WebApi.Model.WebApiContext)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.BeginTransactionAsync">
+            <summary>
+            Begins transaction.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.CommitTransaction">
+            <summary>
+            Commits transaction if exists.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.RollbackTransaction">
+            <summary>
+            Rollbacks transaction if exists.
+            </summary>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.AddAsync``1(``0)">
+            <summary>
+            Adds record to DB.
+            </summary>
+            <typeparam name="T">Model from interest repository.</typeparam>
+            <param name="entity">Entity, that will be added.</param>
+            <returns>Id of newly created record.</returns>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.UpdateAsync``1(``0)">
+            <summary>
+            Updates record in DB.
+            </summary>
+            <typeparam name="T">Model from claim repository.</typeparam>
+            <param name="entity">Entity, that will be updated.</param>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.GetAsync``1(System.Nullable{System.Int32})">
+            <summary>
+            Return record by id.
+            </summary>
+            <typeparam name="T">Model from commission repository.</typeparam>
+            <param name="id">Id of record.</param>
+            <returns>Found item.</returns>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.GetAsync``1(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Return a paged list of records from the DB
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="from"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Repository.ProductRepository.GetAllAsync``1">
+            <summary>
+            Return all products from DB
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
