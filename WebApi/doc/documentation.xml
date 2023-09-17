@@ -111,6 +111,9 @@
             Return all products
             </summary>
             <returns></returns>
+            /// <response code="200">Returns all products</response>
+            <response code="400">Returns ProblemDetail with message</response>
+            <response code="500">Returns ProblemDetail with exception</response>
         </member>
         <member name="M:WebApi.Controllers.ProductController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
@@ -119,6 +122,9 @@
             <param name="from"></param>
             <param name="count"></param>
             <returns></returns>
+            <response code="200">Returns a paginated list of products</response>
+            <response code="400">Returns ProblemDetail with message</response>
+            <response code="500">Returns ProblemDetail with exception</response>
         </member>
         <member name="M:WebApi.Controllers.ProductController.GetById(System.Int32)">
             <summary>
@@ -126,17 +132,20 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+            <response code="200">Returns product item</response>
+            <response code="400">Returns ProblemDetail with message</response>
+            <response code="500">Returns ProblemDetail with exception</response>
         </member>
         <member name="M:WebApi.Controllers.ProductController.Patch(System.Int32,WebApi.DTO.ProductPatchDTO)">
             <summary>
             Updates description of product
             </summary>
-            <param name="id">Identifier.</param>
-            <param name="product">Data for update.</param>
+            <param name="id">Identifier</param>
+            <param name="product">Data for update</param>
             <returns>Updated product</returns>
-            <response code="200">Returns updated product item.</response>
-            <response code="400">Returns ProblemDetail with message.</response>
-            <response code="500">Returns ProblemDetail with exception.</response>
+            <response code="200">Returns updated product item</response>
+            <response code="400">Returns ProblemDetail with message</response>
+            <response code="500">Returns ProblemDetail with exception</response>
         </member>
         <member name="T:WebApi.Controllers.VersionController">
             <summary>
