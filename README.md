@@ -8,4 +8,4 @@ See the examples here:
 
 ``` https://localhost:7278/swagger ```
 
-![ASPNETCOREWebAPI](./github/api.png)
+![ASPNETCOREWebAPI](./.github/api.jpg)

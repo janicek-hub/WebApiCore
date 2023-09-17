@@ -11,13 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestWebApi", "NUnitTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{408DFA67-9F44-46BA-B633-661FC4DAB54B}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\Miloš\OneDrive\Desktop\api.png = C:\Users\Miloš\OneDrive\Desktop\api.png
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{2C4F9FC2-9C17-4F08-9F7D-51D122ED3127}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\Miloš\OneDrive\Desktop\api.png = C:\Users\Miloš\OneDrive\Desktop\api.png
+		C:\Users\Miloš\OneDrive\Desktop\api.jpg = C:\Users\Miloš\OneDrive\Desktop\api.jpg
 	EndProjectSection
 EndProject
 Global
