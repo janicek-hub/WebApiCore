@@ -24,7 +24,7 @@ namespace WebClientMvc.Models
         /// Product price
         /// </summary>
         [Required]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
         public decimal Price { get; set; }
         /// <summary>
         /// Product description
