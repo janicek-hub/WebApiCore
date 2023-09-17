@@ -23,4 +23,4 @@ Set the connection string to MSSQL DB server with read and write permissions.
 
 ``` "ConnectionStrings": {
   "WebApiDB": "Data Source=your SQL server;Encrypt=False;Initial Catalog=WebApi;Persist Security Info=True;Integrated Security=true"
-} ```
+}
