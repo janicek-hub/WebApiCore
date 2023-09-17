@@ -9,3 +9,7 @@ See the examples here:
 ``` https://localhost:7278/swagger ```
 
 ![ASPNETCOREWebAPI](./api.jpg)
+
+Unit tests can be run in Visual Studio
+
+![ASPNETCOREWebAPI](./unittests.jpg)
