@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{2C4F9FC2-9C17-4F08-9F7D-51D122ED3127}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{2C4F9FC2-9C17-4F08-9F7D-51D122ED3127}"
 	ProjectSection(SolutionItems) = preProject
 		C:\Users\Miloš\OneDrive\Desktop\api.png = C:\Users\Miloš\OneDrive\Desktop\api.png
 	EndProjectSection
