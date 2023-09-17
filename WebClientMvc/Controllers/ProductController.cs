@@ -33,7 +33,10 @@ namespace WebClientMvc.Controllers
                 return View(new PaginatedList<Product>(items ?? new List<Product>(), result.RowCount, pageNumber ?? 1, pageSize));
             }
         }
-
+        /// <summary>
+        /// Get all produts
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> IndexAll()
         {
             ViewData["Title"] = "Products (all)";
@@ -45,7 +48,11 @@ namespace WebClientMvc.Controllers
                 return View(items);
             }
         }
-
+        /// <summary>
+        /// Get product for edit
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -63,7 +70,12 @@ namespace WebClientMvc.Controllers
                 return View(model);
             }
         }
-
+        /// <summary>
+        /// POST update product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="product"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ImgUri,Price,Description")] Product product)
@@ -98,7 +110,11 @@ namespace WebClientMvc.Controllers
             }
             return View(product);
         }
-
+        /// <summary>
+        /// Get product detail
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {

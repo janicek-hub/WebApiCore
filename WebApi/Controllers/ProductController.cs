@@ -29,6 +29,9 @@ namespace WebApi.Controllers
         /// Return all products
         /// </summary>
         /// <returns></returns>
+        /// /// <response code="200">Returns all products</response>
+        /// <response code="400">Returns ProblemDetail with message</response>
+        /// <response code="500">Returns ProblemDetail with exception</response>
         [HttpGet("all")]
         [ProducesResponseType(typeof(IEnumerable<ProductDTO>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -55,6 +58,9 @@ namespace WebApi.Controllers
         /// <param name="from"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        /// <response code="200">Returns a paginated list of products</response>
+        /// <response code="400">Returns ProblemDetail with message</response>
+        /// <response code="500">Returns ProblemDetail with exception</response>
         [HttpGet("pagination")]
         [ProducesResponseType(typeof(IEnumerable<ProductDTO>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -84,6 +90,9 @@ namespace WebApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// <response code="200">Returns product item</response>
+        /// <response code="400">Returns ProblemDetail with message</response>
+        /// <response code="500">Returns ProblemDetail with exception</response>
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
@@ -108,12 +117,12 @@ namespace WebApi.Controllers
         /// <summary>
         /// Updates description of product
         /// </summary>
-        /// <param name="id">Identifier.</param>
-        /// <param name="product">Data for update.</param>
+        /// <param name="id">Identifier</param>
+        /// <param name="product">Data for update</param>
         /// <returns>Updated product</returns>
-        /// <response code="200">Returns updated product item.</response>
-        /// <response code="400">Returns ProblemDetail with message.</response>
-        /// <response code="500">Returns ProblemDetail with exception.</response>
+        /// <response code="200">Returns updated product item</response>
+        /// <response code="400">Returns ProblemDetail with message</response>
+        /// <response code="500">Returns ProblemDetail with exception</response>
         [HttpPatch("{id}")]
         [ProducesResponseType(typeof(ProductDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]

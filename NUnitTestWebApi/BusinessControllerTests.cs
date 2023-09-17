@@ -46,6 +46,10 @@ namespace NUnitTestWebApi
             productBusinessController = new ProductBusinessController(productRepository, loggerFactory.CreateLogger<ProductBusinessController>());
         }
 
+        /// <summary>
+        /// Test product update description
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public async Task ProductPatchTest()
         {
@@ -69,6 +73,10 @@ namespace NUnitTestWebApi
             Assert.That(productPatch.Description, Is.EqualTo(product.Description));
         }
 
+        /// <summary>
+        /// Test for return product by id
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public async Task GetProductByIdTest()
         {
@@ -87,6 +95,10 @@ namespace NUnitTestWebApi
             Assert.IsNotNull(productGet);
         }
 
+        /// <summary>
+        /// Test for return all products
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public async Task GetAllTest()
         {
@@ -102,6 +114,10 @@ namespace NUnitTestWebApi
             Assert.That(productGet.Count(), Is.EqualTo(20));
         }
 
+        /// <summary>
+        /// Test for return paginated product list
+        /// </summary>
+        /// <returns></returns>
         [Test]
         public async Task GetPaginationTest()
         {
@@ -117,6 +133,11 @@ namespace NUnitTestWebApi
             Assert.That(productGet.Rows.Count(), Is.EqualTo(10));
         }
 
+        /// <summary>
+        /// Generated mock data
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         private List<ProductDTO> GetMockProductList(int count)
         {
             var list = new List<ProductDTO>();

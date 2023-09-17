@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
     {
         Title = "Product API",
         Version = "v1",
-        Description = ""
+        Description = "Product WebAPI provides product data and allows you to update the product description"
     });
 
     swaggerGenOptions.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -37,8 +37,6 @@ builder.Services.AddSwaggerGen(swaggerGenOptions =>
     swaggerGenOptions.OperationFilter<Swashbuckle.AspNetCore.Filters.SecurityRequirementsOperationFilter>();
     swaggerGenOptions.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); //This line
 
-    //var xmlFile = $"doc/documentation.xml";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     swaggerGenOptions.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, $"doc/documentation.xml"));
 });
 
@@ -64,8 +62,6 @@ builder.Services.AddTransient<IProductBusinessController, ProductBusinessControl
 //Reposirtory
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 // DB
-//builder.Services.AddDbContextPool<WebApiContext>(options => 
-//options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiDB"), x => x.MigrationsAssembly("WebApi")));
 builder.Services.AddDbContextPool<WebApiContext>(options => options.OnConfigure(builder.Configuration, "WebApiDB"));
 
 var app = builder.Build();
