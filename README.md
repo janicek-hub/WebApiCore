@@ -19,11 +19,15 @@ Unit tests can be run in Visual Studio
 ![ASPNETCOREWebAPI](./webapp.jpg)
 
 Before starting, it is necessary to change the connection string to the database in the appsettings.json file of the WebApi project. 
-Set the connection string to MSSQL DB server with read and write permissions.
+Set the connection string to MSSQL DB server with read, write, create, execute permissions for user and windows authentication.
 
 ``` "WebApiDB": "Data Source=your SQL server;Encrypt=False;Initial Catalog=WebApi;Persist Security Info=True;Integrated Security=true" ```
 
-For unit tests project you can set connection string for SQL, for InMemory data set in appsettings-unittest.json DBtype = RAM
+For SQL authentication use a connection string with User Id=myUsername; Password=myPassword;
+
+``` "WebApiDB": "Server=your SQL server;Database=WebApi;User Id=myUsername;Password=myPassword;" ```
+
+For unit tests project you can set connection string for SQL, for InMemory data set in appsettings-unittest.json DBType = RAM
 
 MSSQL
 
