@@ -16,13 +16,13 @@ namespace WebApi.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductBusinessController _productBusinessController;
+        private readonly IProductBusinessController productBusinessController;
         /// <summary>
         /// Constructor
         /// </summary>
         public ProductController(IProductBusinessController productBusinessController)
         {
-            _productBusinessController = productBusinessController;
+            this.productBusinessController = productBusinessController;
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var result = await _productBusinessController.GetAllAsync();
+                var result = await productBusinessController.GetAllAsync();
                 return Ok(result);
             }
             catch (NotFoundException exc)
@@ -71,7 +71,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var result = await _productBusinessController.GetAsync(from, count);
+                var result = await productBusinessController.GetAsync(from, count);
                 Response.Headers.Add("RowCount", result?.RowCount.ToString());
                 return Ok(result?.Rows);
             }
@@ -101,7 +101,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var result = await _productBusinessController.GetProductAsync(id);
+                var result = await productBusinessController.GetProductAsync(id);
                 return Ok(result);
             }
             catch (NotFoundException exc)
@@ -132,7 +132,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var result = await _productBusinessController.PatchProductAsync(id, product);
+                var result = await productBusinessController.PatchProductAsync(id, product);
                 return Ok(result);
             }
             catch (NotFoundException exc)
