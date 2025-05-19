@@ -1,5 +1,4 @@
 ﻿using WebApi.DTO;
-using static WebApi.Exceptions;
 
 namespace WebApi.BusinessControllers.Interfaces
 {

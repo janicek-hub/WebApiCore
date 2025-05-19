@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Filters;
 using WebApi.BusinessControllers.Interfaces;
 using WebApi.DTO;
-using static WebApi.Exceptions;
 
 namespace WebApi.Controllers
 {
@@ -38,19 +35,12 @@ namespace WebApi.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<ProductDTO>>> GetAll()
         {
-            try
-            {
-                var result = await productBusinessController.GetAllAsync();
-                return Ok(result);
-            }
-            catch (NotFoundException exc)
+            var result = await productBusinessController.GetAllAsync();
+            if (result == null)
             {
                 return NotFound();
             }
-            catch (Exception exc)
-            {
-                return BadRequest(new ProblemDetails() { Detail = exc.Message + (exc.InnerException != null ? $";\n{exc.InnerException.Message}" : "") + "\n" + exc.StackTrace, Title = exc.Message, Type = exc.GetType().ToString() });
-            }
+            return Ok(result);
         }
         /// <summary>
         /// Return a paginated list of products
@@ -69,20 +59,13 @@ namespace WebApi.Controllers
             [FromQuery] int? from = 0,
             [FromQuery] int? count = 10)
         {
-            try
-            {
-                var result = await productBusinessController.GetAsync(from, count);
-                Response.Headers.Add("RowCount", result?.RowCount.ToString());
-                return Ok(result?.Rows);
-            }
-            catch (NotFoundException exc)
+            var result = await productBusinessController.GetAsync(from, count);
+            if (result == null)
             {
                 return NotFound();
             }
-            catch (Exception exc)
-            {
-                return BadRequest(new ProblemDetails() { Detail = exc.Message + (exc.InnerException != null ? $";\n{exc.InnerException.Message}" : "") + "\n" + exc.StackTrace, Title = exc.Message, Type = exc.GetType().ToString() });
-            }
+            Response.Headers.Add("RowCount", result?.RowCount.ToString());
+            return Ok(result?.Rows);
         }
 
         /// <summary>
@@ -99,19 +82,12 @@ namespace WebApi.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ProductDTO>> GetById(int id)
         {
-            try
-            {
-                var result = await productBusinessController.GetProductAsync(id);
-                return Ok(result);
-            }
-            catch (NotFoundException exc)
+            var result = await productBusinessController.GetProductAsync(id);
+            if (result == null)
             {
                 return NotFound();
             }
-            catch (Exception exc)
-            {
-                return BadRequest(new ProblemDetails() { Detail = exc.Message + (exc.InnerException != null ? $";\n{exc.InnerException.Message}" : "") + "\n" + exc.StackTrace, Title = exc.Message, Type = exc.GetType().ToString() });
-            }
+            return Ok(result);
         }
 
         /// <summary>
@@ -130,19 +106,12 @@ namespace WebApi.Controllers
         [SwaggerResponseExample(StatusCodes.Status200OK, typeof(ProductDTO))]
         public async Task<ActionResult<ProductDTO>> Patch(int id, [FromBody] ProductPatchDTO product)
         {
-            try
-            {
-                var result = await productBusinessController.PatchProductAsync(id, product);
-                return Ok(result);
-            }
-            catch (NotFoundException exc)
+            var result = await productBusinessController.PatchProductAsync(id, product);
+            if (result == null)
             {
                 return NotFound();
             }
-            catch (Exception exc)
-            {
-                return BadRequest(new ProblemDetails() { Detail = exc.Message + (exc.InnerException != null ? $";\n{exc.InnerException.Message}" : "") + "\n" + exc.StackTrace, Title = exc.Message, Type = exc.GetType().ToString() });
-            }
+            return Ok(result);
         }
     }
 }

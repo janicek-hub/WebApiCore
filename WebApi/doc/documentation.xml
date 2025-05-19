@@ -23,7 +23,7 @@
             <param name="id"></param>
             <param name="productDTO"></param>
             <returns></returns>
-            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+            <exception cref="!:NotFoundException"></exception>
         </member>
         <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.GetProductAsync(System.Int32)">
             <summary>
@@ -31,7 +31,7 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
-            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+            <exception cref="!:NotFoundException"></exception>
         </member>
         <member name="M:WebApi.BusinessControllers.Interfaces.IProductBusinessController.GetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
@@ -72,7 +72,7 @@
             <param name="id"></param>
             <param name="productDTO"></param>
             <returns></returns>
-            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+            <exception cref="!:NotFoundException"></exception>
         </member>
         <member name="M:WebApi.BusinessControllers.ProductBusinessController.GetProductAsync(System.Int32)">
             <summary>
@@ -80,7 +80,7 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
-            <exception cref="T:WebApi.Exceptions.NotFoundException"></exception>
+            <exception cref="!:NotFoundException"></exception>
         </member>
         <member name="M:WebApi.BusinessControllers.ProductBusinessController.GetAsync(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>

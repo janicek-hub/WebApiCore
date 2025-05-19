@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using System;
+using WebApi;
 using WebApi.BusinessControllers;
 using WebApi.BusinessControllers.Interfaces;
 using WebApi.Extensions;
@@ -66,10 +67,12 @@ builder.Services.AddDbContextPool<WebApiContext>(options => options.OnConfigure(
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 using var scope = app.Services.CreateScope();
 var context = scope.ServiceProvider.GetService<WebApiContext>();
 if (context == null) throw new Exception("Context is null");
-context.EnsureCreated();
+//context.EnsureCreated();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

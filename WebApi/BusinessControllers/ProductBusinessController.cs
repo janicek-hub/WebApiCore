@@ -4,7 +4,6 @@ using WebApi.DTO;
 using WebApi.Extensions;
 using WebApi.Model.Entities;
 using WebApi.Repository.Interfaces;
-using static WebApi.Exceptions;
 
 namespace WebApi.BusinessControllers
 {
@@ -60,7 +59,7 @@ namespace WebApi.BusinessControllers
         /// <param name="productDTO"></param>
         /// <returns></returns>
         /// <exception cref="NotFoundException"></exception>
-        public async Task<ProductDTO> PatchProductAsync(int id, ProductPatchDTO productDTO)
+        public async Task<ProductDTO?> PatchProductAsync(int id, ProductPatchDTO productDTO)
         {
             try
             {
@@ -71,7 +70,7 @@ namespace WebApi.BusinessControllers
                 {
                     var message = $"Product id {id} not found";
                     logger.LogError(message);
-                    throw new NotFoundException(message);
+                    return null;
                 }
                 else
                 {
@@ -106,7 +105,7 @@ namespace WebApi.BusinessControllers
                 {
                     var message = $"Product id {id} not found";
                     logger.LogError(message);
-                    throw new NotFoundException(message);
+                    return null;
                 }
                 return product.ToComm();
             }
